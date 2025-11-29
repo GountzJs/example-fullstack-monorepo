@@ -1,0 +1,29 @@
+{
+  "name": "@example-fullstack-monorepo/domain",
+  "version": "1.0.0",
+  "description": "Library Domain for the fullstack monorepo",
+  "private": true,
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "tsup": "8.5.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.22.0"
+}

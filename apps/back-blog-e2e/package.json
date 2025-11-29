@@ -1,0 +1,27 @@
+{
+  "name": "@example-monorepo-workspace/back-blog-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "back-blog-e2e",
+    "implicitDependencies": [
+      "back-blog"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/back-blog-e2e/jest.config.cts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "back-blog:build",
+          "back-blog:serve"
+        ]
+      }
+    }
+  }
+}

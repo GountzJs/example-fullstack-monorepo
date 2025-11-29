@@ -1,0 +1,12 @@
+{
+  "name": "@example-monorepo-workspace/web-blog",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "web-blog"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  }
+}
