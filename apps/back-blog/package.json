@@ -111,10 +111,14 @@
   "dependencies": {
     "cors": "2.8.5",
     "express": "^4.21.2",
-    "morgan": "1.10.1"
+    "morgan": "1.10.1",
+    "pg": "8.16.3",
+    "reflect-metadata": "0.2.2",
+    "typeorm": "0.3.27"
   },
   "devDependencies": {
     "@types/cors": "2.8.19",
-    "@types/morgan": "1.9.10"
+    "@types/morgan": "1.9.10",
+    "@types/node": "20.19.9"
   }
 }

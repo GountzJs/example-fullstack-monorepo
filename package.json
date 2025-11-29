@@ -13,7 +13,8 @@
     "back:lint": "nx lint back-blog",
     "back:test": "nx test back-blog",
     "back:playwright": "nx playwright back-blog",
-    "back-e2e:e2e": "nx e2e back-blog-e2e"
+    "back-e2e:e2e": "nx e2e back-blog-e2e",
+    "format": "prettier --write ."
   },
   "private": true,
   "dependencies": {

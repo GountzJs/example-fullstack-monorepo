@@ -9,5 +9,5 @@ export default defineConfig((options) => ({
   target: 'es2022',
   external: ['react', 'react/jsx-runtime', 'styled-components'],
   minify: !options.watch,
-  banner: { js: '"use client";' }
+  banner: { js: '"use client";' },
 }));

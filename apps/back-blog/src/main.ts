@@ -1,14 +1,21 @@
-import express from 'express';
+import { App } from './app';
+import { AppDataSource } from './db/datasource';
+import { IRoutes } from './models/interfaces/routes.interface';
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+const routers: IRoutes[] = [];
 
-const app = express();
+async function bootstrap() {
+  const app = new App();
 
-app.get('/', (req, res) => {
-  res.send({ message: 'Hello API' });
-});
+  try {
+    await AppDataSource.initialize();
+    console.log('Data Source has been initialized!');
+  } catch (error) {
+    console.error('Error during Data Source initialization:', error);
+  }
 
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
-});
+  app.initRoutes(routers);
+  app.initServer();
+}
+
+bootstrap();

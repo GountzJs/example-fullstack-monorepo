@@ -1,6 +1,8 @@
+import path from 'node:path';
 import process from 'node:process';
 
-process.loadEnvFile();
+const envPath = path.resolve(process.cwd(), '.env');
+process.loadEnvFile(envPath);
 
 interface DBSettings {
   host: string;
