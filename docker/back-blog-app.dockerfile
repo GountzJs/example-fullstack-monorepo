@@ -1,5 +1,11 @@
 FROM alpine:3.20 AS builder
 
+ARG DB_HOST
+ARG DB_PORT
+ARG DB_USER
+ARG DB_PASSWORD
+ARG DB_NAME
+
 RUN apk add --no-cache \
     curl \
     bash \
@@ -18,10 +24,16 @@ RUN pnpm install
 
 RUN pnpm back:build
 
-COPY .env /app/apps/back-blog/dist/.env
+WORKDIR /app/apps/back-blog
 
-WORKDIR /app/apps/back-blog/dist
+RUN echo "DB_HOST=$DB_HOST"  >> .env && \
+    echo "DB_PORT=$DB_PORT" >> .env && \
+    echo "DB_USER=$DB_USER" >> .env && \
+    echo "DB_PASSWORD=$DB_PASSWORD" >> .env && \
+    echo "DB_NAME=$DB_NAME" >> .env
 
 EXPOSE 8080
 
-CMD ["node", "main.js"]
+WORKDIR /app
+
+CMD ["node", "/app/apps/back-blog/dist/main.js"]

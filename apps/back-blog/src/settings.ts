@@ -1,7 +1,8 @@
 import path from 'node:path';
 import process from 'node:process';
 
-const envPath = path.resolve(process.cwd(), '.env');
+const envPath = path.resolve(process.cwd(), 'apps/back-blog', '.env');
+
 process.loadEnvFile(envPath);
 
 interface DBSettings {
@@ -18,8 +19,8 @@ export class Settings {
   private _db: DBSettings;
 
   constructor() {
-    this._port = Number(process.env.PORT || 8080);
-    this._host = process.env.HOST || 'localhost';
+    this._port = 8080;
+    this._host = 'localhost';
     this._db = {
       host: process.env.DB_HOST || 'localhost',
       port: Number(process.env.DB_PORT || 5432),
