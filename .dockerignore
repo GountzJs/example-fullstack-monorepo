@@ -1,8 +1,0 @@
-.github
-.vscode
-**/node_modules
-**/dist
-*.md
-LICENSE
-temp
-*.env*
